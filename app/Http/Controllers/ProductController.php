@@ -44,17 +44,39 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        
+        $product = Product::find($id);
+        if(!$product){
+            return response()->json(['error'=>'Producto no encontrado'],404);
+        }
+
+        return response()->json(['data'=>$product],200);
+        
+        //return new ProductResource($product);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductRequest $request, Product $product)
     {
-        //
+        $data = $request->validated();
+
+        $imageName = $product->image;
+
+        if ($request->hasFile('image')) {
+            $imageName = time().'.'.$request->image->extension();  
+            $request->image->storeAs('images', $imageName);
+        }
+
+        $product->update(array_merge(
+            $data,
+            ['image' => $imageName]
+        ));
+
+        return new ProductResource($product);
     }
 
     /**
@@ -62,6 +84,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return response()->json(['message' => 'Producto eliminado con éxito']);
     }
 }
