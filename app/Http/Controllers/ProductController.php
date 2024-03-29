@@ -29,7 +29,7 @@ class ProductController extends Controller
         $imageName = null;
         if ($request->hasFile('image')) {
             $imageName = time().'.'.$request->image->extension();  
-            $request->image->storeAs('images', $imageName);
+            $request->image->move(public_path('images'), $imageName);
         }
 
         $product = Product::create(array_merge(
@@ -52,9 +52,9 @@ class ProductController extends Controller
             return response()->json(['error'=>'Producto no encontrado'],404);
         }
 
-        return response()->json(['data'=>$product],200);
+        //return response()->json(['data'=>$product],200);
         
-        //return new ProductResource($product);
+        return new ProductResource($product);
     }
 
     /**
