@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useStateContext } from '../contexts/ContextProvider'
 import { ContextType } from '../types';
-import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+
 
 function ProductsView() {
 
@@ -16,8 +17,8 @@ function ProductsView() {
 
   return (
     <>
+        <Navbar />
         <h1 className='font-semibold text-4xl text-center py-5'>ECOMMERCE - LARAVEL | REACT</h1>
-        <Link to={'/cart'}>Cart</Link>
         <div className='flex gap-5 justify-center pt-3 pb-10'>
           {categories.map(category => (
             <button onClick={()=>handleCategory(category.id)} className='rounded-md border-2 px-4 border-gray-300 bg-gray-100 hover:bg-gray-200' key={category.id}>{category.category}</button>
