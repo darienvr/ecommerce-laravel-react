@@ -39,6 +39,30 @@ const CartView = () => {
         setCart(cart.filter(item => item.product_id !== id));
     };
 
+    const handleIncrease = (id:string) => {
+        setCart((prev:[]) => {
+            const cartItem = cart.find((item) => item.product_id === id);
+            if (cartItem && cartItem.amount < 10) {
+                return prev.map((item: any) =>
+                    item.product_id === id ? { ...item, amount: item.amount + 1 } : item
+                );
+            }
+            return prev
+        });
+    }
+
+    const handleDecrease = (id:string) => {
+        setCart((prev:[]) => {
+            const cartItem = cart.find((item) => item.product_id === id);
+            if (cartItem && cartItem.amount > 1) {
+                return prev.map((item:any)=>
+                    item.product_id === id ? { ...item, amount: item.amount - 1 } : item
+                );
+            }
+            return prev
+        });
+    } 
+
     return (
         <>
             <Navbar />
@@ -56,7 +80,13 @@ const CartView = () => {
                                         <img className='w-[130px] rounded-sm h-28' src={product.image} alt="" />
                                         <div>
                                             <h1 className='font-semibold'>{product.name}</h1>
-                                            <p className='text-gray-500 text-sm'>Quantity: {cartItem ? cartItem.amount : 0}</p>
+                                            
+                                            <div className='flex items-center'>
+                                                <p className='text-gray-500 text-sm'>Quantity:</p>
+                                                <button onClick={()=>handleDecrease(product.id)} className='border px-2 py-0 border-black rounded-sm'>-</button>
+                                                <p className='mx-2'>{cartItem ? cartItem.amount : 0}</p>
+                                                <button onClick={()=>handleIncrease(product.id)} className='border px-2 py-0 border-black rounded-sm'>+</button>
+                                            </div> 
                                         </div>
                                     </div>
                                     <div>

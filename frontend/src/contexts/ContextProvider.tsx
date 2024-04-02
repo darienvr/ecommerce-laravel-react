@@ -46,13 +46,13 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
         }
     }, [selectCategory, products]);
 
-    const addCart = (productId:string) => {
+    const addCart = (productId:string, amount:number) => {
         alert('Agregado al carrito')
         setCart(prevCart => {
             const existingItem = prevCart.find(item => item.product_id === productId);
             if (existingItem) {
                 return prevCart.map(item =>
-                    item.product_id === productId ? { ...item, amount: item.amount + 1 } : item
+                    item.product_id === productId ? { ...item, amount: item.amount + amount } : item
                 );
             } else {
                 return [...prevCart, { product_id: productId, amount: 1 }];

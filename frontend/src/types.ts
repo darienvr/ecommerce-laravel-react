@@ -23,6 +23,6 @@ export type ContextType = {
     filterProducts: Product[],
     cart: Cart[],
     handleCategory: (i:string)=>void,
-    addCart: (i:string)=>void,
+    addCart: (i:string, n:number)=>void,
     setCart: (i:any)=>void,
 }

@@ -33,7 +33,7 @@ function ProductsView() {
                             <h3 className='font-bold'>{product.name}</h3>
                             <p className='text-gray-500 font-semibold'>S./{product.price}</p>
                         </div>
-                        <button onClick={()=>addCart(product.id)} className='bg-orange-400 px-3 rounded-md text-white font-semibold'>Add Cart</button>
+                        <button onClick={()=>addCart(product.id, 1)} className='bg-orange-400 px-3 rounded-md text-white font-semibold'>Add Cart</button>
                     </div>
                 </div>
             ))}

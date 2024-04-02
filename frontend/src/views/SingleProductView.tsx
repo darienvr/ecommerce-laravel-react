@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axiosClient from '../axios'
 import Navbar from '../components/Navbar';
+import { useStateContext } from '../contexts/ContextProvider'
+import { ContextType } from '../types';
 
 const SingleProductView = () => {
 
-    const {id} = useParams()
+    const { addCart } = useStateContext() as ContextType;
+
+    const {idProduct} = useParams()
     const [product, setProduct] = useState<any>({})
     const [loading, setLoading] = useState<boolean>(true)
+    const [count, setCount] = useState(1);
 
     const getProduct = (url: string) => {
         axiosClient.get(url)
@@ -19,10 +24,20 @@ const SingleProductView = () => {
     }
 
     useEffect(()=>{
-        getProduct(`/product/${id}`)
+        getProduct(`/product/${idProduct}`)
     },[])
 
-    const {name, image, price, description} = product;
+    const handleIncrease = () => {
+        if(count>=10) return 
+        setCount(prev=>prev+1);
+    }
+
+    const handleDecrease = () => {
+        if(count<=1) return 
+        setCount(prev=>prev-1);
+    }   
+
+    const {id, name, image, price, description} = product;
 
     return (
         <>
@@ -37,6 +52,12 @@ const SingleProductView = () => {
                                 <h1 className='text-5xl font-semibold'>{name}</h1>
                                 <h3 className='text-2xl text-gray-600 font-semibold'>S./ {price}</h3>
                                 <p>{description}</p>
+                                <div className='flex items-center'>
+                                    <button onClick={()=>handleDecrease()} className='border p-2 border-black rounded-sm'>-</button>
+                                    <p className='p-2'>{count}</p>
+                                    <button onClick={()=>handleIncrease()} className='border p-2 border-black rounded-sm'>+</button>
+                                </div> 
+                                <button onClick={()=>addCart(id, count)} className='w-fit px-5 py-2 rounded-md bg-orange-500'>Add Cart</button>
                         </div>
                     </div>
                 }
