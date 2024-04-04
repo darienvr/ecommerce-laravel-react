@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useStateContext } from '../contexts/ContextProvider';
-import { ContextType } from '../types';
+import { ContextType, Product } from '../types';
 import axiosClient from '../axios';
 import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
@@ -11,7 +11,6 @@ const CartView = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-       
         const fetchProductDetails = async () => {
             const promises = cart.map((item) =>
                 axiosClient.get(`/product/${item.product_id}`).then((response: any) => {
@@ -35,11 +34,11 @@ const CartView = () => {
         return total + (product.price * (cartItem ? cartItem.amount : 0));
     }, 0);
 
-    const handleDelete = (id: string) => {
+    const handleDelete = (id: Product['id']) => {
         setCart(cart.filter(item => item.product_id !== id));
     };
 
-    const handleIncrease = (id:string) => {
+    const handleIncrease = (id:Product['id']) => {
         setCart((prev:[]) => {
             const cartItem = cart.find((item) => item.product_id === id);
             if (cartItem && cartItem.amount < 10) {
@@ -51,7 +50,7 @@ const CartView = () => {
         });
     }
 
-    const handleDecrease = (id:string) => {
+    const handleDecrease = (id:Product['id']) => {
         setCart((prev:[]) => {
             const cartItem = cart.find((item) => item.product_id === id);
             if (cartItem && cartItem.amount > 1) {

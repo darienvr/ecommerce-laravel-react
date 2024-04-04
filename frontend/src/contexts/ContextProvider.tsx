@@ -34,7 +34,7 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
         getProducts('/product')
     },[])
 
-    const handleCategory = (category_id: string) => {
+    const handleCategory = (category_id: Category['id']) => {
         setSelectCategory(category_id)
     }
 
@@ -46,7 +46,7 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
         }
     }, [selectCategory, products]);
 
-    const addCart = (productId:string, amount:number) => {
+    const addCart = (productId:Product['id'], amount:Cart['amount']) => {
         alert('Agregado al carrito')
         setCart(prevCart => {
             const existingItem = prevCart.find(item => item.product_id === productId);

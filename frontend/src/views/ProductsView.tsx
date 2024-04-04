@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useStateContext } from '../contexts/ContextProvider'
-import { ContextType } from '../types';
+import { ContextType, Product } from '../types';
 import Navbar from '../components/Navbar';
 
 
@@ -11,7 +10,7 @@ function ProductsView() {
 
     const navigate = useNavigate(); 
 
-    const onClick = (id:string) => {
+    const onClick = (id:Product['id']) => {
         navigate(`/product/${id}`)
     }
 

@@ -22,7 +22,7 @@ export type ContextType = {
     products: Product[],
     filterProducts: Product[],
     cart: Cart[],
-    handleCategory: (i:string)=>void,
-    addCart: (i:string, n:number)=>void,
+    handleCategory: (i:Category['id'])=>void,
+    addCart: (i:Product['id'], n:number)=>void,
     setCart: (i:any)=>void,
 }
