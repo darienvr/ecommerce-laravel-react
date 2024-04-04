@@ -2,6 +2,7 @@ import {Navigate, createBrowserRouter} from 'react-router-dom';
 import ProductsView from './views/ProductsView'
 import SingleProductView from './views/SingleProductView'
 import Cart from './views/CartView'
+import Payment from './views/PaymentView'
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
     {
         path: '/cart',
         element: <Cart />,
+    },
+    {
+        path: '/payment',
+        element: <Payment/>,
     }
 ])
 

@@ -99,7 +99,10 @@ const CartView = () => {
                     })}
                     <div className='flex justify-between my-5 items-center'>
                         <Link className='border-gray-900 border-2 rounded-md px-3 py-1' to='/'>Continue Shopping</Link>
-                        <h1 className='text-xl font-semibold'>Order Total: S./{totalPrice}</h1>
+                        <h1 className='text-xl font-semibold'>SubTotal: S./{totalPrice}</h1>
+                    </div>
+                    <div className='flex justify-center mb-10'>
+                        <Link to={'/payment'} className='bg-blue-400 px-5 py-2 rounded-md'>Proceed To Checkout</Link>
                     </div>
                     </>
                 )}
