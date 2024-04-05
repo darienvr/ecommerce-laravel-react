@@ -25,4 +25,7 @@ export type ContextType = {
     handleCategory: (i:Category['id'])=>void,
     addCart: (i:Product['id'], n:number)=>void,
     setCart: (i:any)=>void,
+    totalPrice: number,
+    productDetails: any,
+    loading: boolean
 }

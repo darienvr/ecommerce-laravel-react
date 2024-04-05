@@ -11,6 +11,8 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
     const [products, setProducts] = useState<Product[]>([]);
     const [filterProducts, setFilterProducts] = useState<Product[]>([]);
     const [selectCategory, setSelectCategory] = useState('All');
+    const [productDetails, setProductDetails] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
 
     const [cart, setCart] = useState<Cart[]>(localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')!) : [])
 
@@ -69,6 +71,29 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
         localStorage.setItem('cart', JSON.stringify(cart));
     }, [cart]);
 
+
+    useEffect(() => {
+        const fetchProductDetails = async () => {
+            const promises = cart.map((item) =>
+                axiosClient.get(`/product/${item.product_id}`).then((response: any) => {
+                    console.log(response.data.data);
+                    return response.data.data;
+                })
+            );
+
+            const details = await Promise.all(promises);
+            setProductDetails(details);
+            setLoading(false)
+        };
+
+        fetchProductDetails();
+    }, [cart]);
+
+    const totalPrice = productDetails.reduce((total, product) => {
+        const cartItem = cart.find((item) => item.product_id === product.id);
+        return total + (product.price * (cartItem ? cartItem.amount : 0));
+    }, 0);
+
     return (
         <StateContext.Provider value={{
             products,
@@ -77,7 +102,10 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
             cart,
             handleCategory,
             addCart,
-            setCart
+            setCart,
+            totalPrice,
+            productDetails,
+            loading
         }}>
             {children}
         </StateContext.Provider>

@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { useStateContext } from '../contexts/ContextProvider';
 import { ContextType, Product } from '../types';
 import axiosClient from '../axios';
@@ -6,34 +5,8 @@ import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 
 const CartView = () => {
-    const { cart, setCart } = useStateContext() as ContextType;
-    const [productDetails, setProductDetails] = useState<any[]>([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchProductDetails = async () => {
-            const promises = cart.map((item) =>
-                axiosClient.get(`/product/${item.product_id}`).then((response: any) => {
-                    console.log(response.data.data);
-                    return response.data.data;
-                })
-            );
-
-            const details = await Promise.all(promises);
-            setProductDetails(details);
-            setLoading(false)
-        };
-
-        fetchProductDetails();
-    }, [cart]);
-
-
-
-    const totalPrice = productDetails.reduce((total, product) => {
-        const cartItem = cart.find((item) => item.product_id === product.id);
-        return total + (product.price * (cartItem ? cartItem.amount : 0));
-    }, 0);
-
+    const { cart, setCart, loading, productDetails, totalPrice } = useStateContext() as ContextType;
+    
     const handleDelete = (id: Product['id']) => {
         setCart(cart.filter(item => item.product_id !== id));
     };
@@ -70,7 +43,7 @@ const CartView = () => {
                     <div className='text-5xl text-center font-semibold'>LOADING...</div>
                 ) : (
                     <>
-                        {productDetails.map((product) => {
+                        {productDetails.map((product:any) => {
                         const cartItem = cart.find((item) => item.product_id === product.id);
                         return (
                             <div key={product.id}>
