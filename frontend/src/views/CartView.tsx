@@ -35,6 +35,21 @@ const CartView = () => {
         });
     } 
 
+    if(productDetails.length === 0){
+        return(
+            <>
+                <Navbar />
+                <div className='mt-10 w-fit mx-auto'>
+                    <div className='text-5xl text-center font-semibold pb-5'>Your cart is empty</div>
+                    <hr className='mb-5'/>
+                    <div className='flex items-center'>
+                        <Link className='border-gray-900 border-2 rounded-md px-3 mx-auto' to='/'>Return</Link>
+                    </div>
+                </div>
+            </>
+        )
+    }
+
     return (
         <>
             <Navbar />
