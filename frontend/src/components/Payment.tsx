@@ -10,7 +10,7 @@ const Payment = () => {
     const elements = useElements();
     const navigate = useNavigate();
 
-    const { totalPrice } = useStateContext() as ContextType;
+    const { totalPrice, deleteCart } = useStateContext() as ContextType;
 
     /*
     const handleSubmit = async(e:any) => {
@@ -68,6 +68,7 @@ const Payment = () => {
             })
 
             console.log(data)
+            deleteCart()
             navigate('/');
         }
       }
@@ -75,7 +76,7 @@ const Payment = () => {
   return (
     <>
         <Navbar />
-        <div className='w-[40%] mx-auto mt-10'>
+        <div className='w-[40%] mx-auto mt-10 border-2 shadow-lg rounded-md p-3'>
             <p className='my-5 text-3xl'>SubTotal: ${totalPrice}</p>
             <form className='flex flex-col h-[80px] justify-between' onSubmit={handleSubmit}>
                 <CardElement />

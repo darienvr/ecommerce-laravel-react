@@ -27,5 +27,6 @@ export type ContextType = {
     setCart: (i:any)=>void,
     totalPrice: number,
     productDetails: any,
-    loading: boolean
+    loading: boolean,
+    deleteCart: ()=>void,
 }

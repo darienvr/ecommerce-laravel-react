@@ -62,6 +62,10 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
         });
     }
 
+    const deleteCart = () => {
+        setCart([])
+    }
+
     useEffect(() => {
         console.log(cart);
     }, [cart]); 
@@ -105,7 +109,8 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
             setCart,
             totalPrice,
             productDetails,
-            loading
+            loading,
+            deleteCart
         }}>
             {children}
         </StateContext.Provider>
