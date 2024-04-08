@@ -57,7 +57,7 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
                     item.product_id === productId ? { ...item, amount: item.amount + amount } : item
                 );
             } else {
-                return [...prevCart, { product_id: productId, amount: 1 }];
+                return [...prevCart, { product_id: productId, amount: amount }];
             }
         });
     }
