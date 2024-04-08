@@ -4,6 +4,7 @@ import { ContextType } from '../types';
 import {CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import axiosClient from '../axios'
 import { useNavigate } from 'react-router-dom';
+import imgStripe from '../assets/stripe-logo.png'
 
 const Payment = () => {
     const stripe = useStripe();
@@ -76,11 +77,13 @@ const Payment = () => {
   return (
     <>
         <Navbar />
-        <div className='w-[40%] mx-auto mt-10 border-2 shadow-lg rounded-md p-3'>
-            <p className='my-5 text-3xl'>SubTotal: ${totalPrice}</p>
-            <form className='flex flex-col h-[80px] justify-between' onSubmit={handleSubmit}>
+        <img className='mx-auto mt-5' src={imgStripe} alt="" />
+        <div className='w-[40%] mx-auto border-2 shadow-lg rounded-md p-3'>
+            <p className='mb-5 text-2xl font-bold'>Payment Information</p>
+            <form className='flex flex-col h-fit justify-between' onSubmit={handleSubmit}>
                 <CardElement />
-                <button className='bg-blue-400 px-5 py-2 rounded-md w-[50%] mx-auto'>BUY</button>
+                <p className='mx-auto my-5 text-2xl font-semibold'>Total: ${totalPrice}</p>
+                <button className='bg-blue-400 px-5 py-2 rounded-md w-[50%] mx-auto'>Pay Now</button>
             </form>
         </div>
     </>
