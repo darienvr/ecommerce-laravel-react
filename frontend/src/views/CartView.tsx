@@ -71,11 +71,13 @@ const CartView = () => {
                                             <div>
                                                 <h1 className='font-semibold'>{product.name}</h1>
                                                 
-                                                <div className='flex items-center'>
-                                                    <p className='text-gray-500 text-sm'>Quantity:</p>
-                                                    <button onClick={()=>handleDecrease(product.id)} className='border px-2 py-0 border-black rounded-sm'>-</button>
-                                                    <p className='mx-2'>{cartItem ? cartItem.amount : 0}</p>
-                                                    <button onClick={()=>handleIncrease(product.id)} className='border px-2 py-0 border-black rounded-sm'>+</button>
+                                                <div className='flex items-center gap-3'>
+                                                    <p className='text-gray-500 text-sm'>Quantity: </p>
+                                                    <div className='flex'>
+                                                        <button onClick={()=>handleDecrease(product.id)} className='border px-2 py-0 border-gray-500 rounded-sm shadow-lg bg-gray-100'>-</button>
+                                                        <p className='mx-2'>{cartItem ? cartItem.amount : 0}</p>
+                                                        <button onClick={()=>handleIncrease(product.id)} className='border px-2 py-0 border-gray-500 rounded-sm shadow-lg bg-gray-100'>+</button>
+                                                    </div>
                                                 </div> 
                                             </div>
                                         </div>

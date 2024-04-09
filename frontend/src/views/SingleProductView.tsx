@@ -52,10 +52,10 @@ const SingleProductView = () => {
                                 <h1 className='text-5xl font-semibold'>{name}</h1>
                                 <h3 className='text-2xl text-gray-600 font-semibold'>S./ {price}</h3>
                                 <p>{description}</p>
-                                <div className='flex items-center'>
-                                    <button onClick={()=>handleDecrease()} className='border p-2 border-black rounded-sm'>-</button>
+                                <div className='flex items-center text-2xl'>
+                                    <button onClick={()=>handleDecrease()} className='border px-2 py-0 border-gray-500 rounded-sm shadow-lg bg-gray-100'>-</button>
                                     <p className='p-2'>{count}</p>
-                                    <button onClick={()=>handleIncrease()} className='border p-2 border-black rounded-sm'>+</button>
+                                    <button onClick={()=>handleIncrease()} className='border px-2 py-0 border-gray-500 rounded-sm shadow-lg bg-gray-100'>+</button>
                                 </div> 
                                 <button onClick={()=>addCart(id, count)} className='w-fit px-5 py-2 rounded-md bg-orange-500'>Add Cart</button>
                         </div>
