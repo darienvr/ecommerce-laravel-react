@@ -42,28 +42,35 @@ const SingleProductView = () => {
     return (
         <>
             <Navbar />
-            <div className='h-[100vh]'>
-                {loading && <div>CARGANDO...</div> }
+            <div className='h-[89vh] bg-gray-200 pt-16'>
+                {loading && <div className='text-center text-5xl font-bold'>CARGANDO...</div> }
                 {!loading && 
-                    
-                    <div className='grid grid-cols-2 w-[80%] mx-auto pt-10 gap-10'>
-                        <img className='h-[500px] w-[100%]' src={image} alt={name} />
-                        <div className='flex flex-col justify-center gap-5'>
-                                <h1 className='text-5xl font-semibold'>{name}</h1>
-                                <h3 className='text-2xl text-gray-600 font-semibold'>S./ {price}</h3>
-                                <p>{description}</p>
-                                <div className='flex items-center text-2xl'>
-                                    <button onClick={()=>handleDecrease()} className='border px-2 py-0 border-gray-500 rounded-sm shadow-lg bg-gray-100'>-</button>
-                                    <p className='p-2'>{count}</p>
-                                    <button onClick={()=>handleIncrease()} className='border px-2 py-0 border-gray-500 rounded-sm shadow-lg bg-gray-100'>+</button>
-                                </div> 
-                                <button onClick={()=>addCart(id, count)} className='w-fit px-5 py-2 rounded-md bg-orange-500'>Add Cart</button>
+                    <>
+                        <div className='grid grid-cols-2 w-[70%] mx-auto gap-10 bg-white shadow-lg rounded-md'>
+                            <img className='h-[500px] w-[100%] rounded-l-md' src={image} alt={name} />
+                            <div className='flex flex-col justify-center gap-5'>
+                                    <h1 className='text-5xl font-semibold'>{name}</h1>
+                                    <h3 className='text-2xl text-gray-600 font-semibold'>${price}</h3>
+                                    <p>{description}</p>
+                                    <div className='flex items-center text-2xl'>
+                                        <button onClick={()=>handleDecrease()} className='w-8 border px-2 py-0 border-gray-500 rounded-sm shadow-lg bg-gray-100'>-</button>
+                                        <p className='p-2'>{count}</p>
+                                        <button onClick={()=>handleIncrease()} className='w-8 border px-2 py-0 border-gray-500 rounded-sm shadow-lg bg-gray-100'>+</button>
+                                    </div> 
+                                    <button onClick={()=>addCart(id, count)} className='w-fit px-5 py-2 rounded-md bg-blue-500 text-white font-semibold flex gap-2'>Add Cart <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                                    </svg>
+                                    </button>
+                            </div>
                         </div>
-                    </div>
+                        <div className='flex justify-center'>
+                            <Link to={'/home'} className='my-5 py-2 px-5 rounded-md bg-orange-500 text-white font-semibold flex gap-2'>Back To Product <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+                            </svg>
+                            </Link>
+                        </div>
+                    </>
                 }
-                <div className='flex justify-center'>
-                    <Link to={'/home'} className='my-5 py-2 px-5 rounded-md bg-yellow-300 text-white font-semibold '>Home</Link>
-                </div>
             </div>
         </>
     )
