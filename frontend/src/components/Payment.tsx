@@ -78,6 +78,7 @@ const Payment = () => {
     <>
         <Navbar />
         <img className='mx-auto mt-5' src={imgStripe} alt="" />
+        <p className='w-[40%] mx-auto text-gray-500 mb-3'>Test Card: 4242 4242 4242 4242</p>
         <div className='w-[40%] mx-auto border-2 shadow-lg rounded-md p-3'>
             <p className='mb-5 text-2xl font-bold'>Payment Information</p>
             <form className='flex flex-col h-fit justify-between' onSubmit={handleSubmit}>
