@@ -55,7 +55,7 @@ const CartView = () => {
     }
 
     return (
-        <>
+        <div className='bg-gray-100 h-[100vh]'>
             <Navbar />
             <div className='mt-10 w-[70%] mx-auto'>
                 {loading ? (
@@ -96,13 +96,13 @@ const CartView = () => {
                                             </button>
                                         </div>
                                     </div>
-                                    <hr />
+                                    <hr/>
                                 </div>
                             );
                             })}
                             <div className='flex justify-between my-5 items-center'>
-                                <Link className='rounded-md px-4 py-2 bg-orange-500 text-white font-semibold' to='/'>Continue Shopping</Link>
-                                <Link onClick={deleteCart} className='rounded-md px-4 py-2 bg-red-500 text-white font-semibold' to='/cart'>All Clear</Link>
+                                <Link className='rounded-md px-4 py-2 bg-zinc-700 text-gray-100 font-semibold' to='/'>Continue Shopping</Link>
+                                <Link onClick={deleteCart} className='rounded-md px-4 py-2 text-red-500 font-semibold hover:underline' to='/cart'>Clear Shopping Cart</Link>
                             </div>
                             
                         </div>
@@ -135,7 +135,7 @@ const CartView = () => {
                     </div>
                 )}
             </div>
-        </>
+        </div>
     );
 };
 

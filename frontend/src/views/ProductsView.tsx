@@ -10,7 +10,7 @@ function ProductsView() {
   return (
     <>
         <Navbar />
-        <div className='bg-gray-200 min-h-[100vh]'>
+        <div className='bg-gray-100 min-h-[100vh]'>
             <div className='flex w-[90%] mx-auto pt-5'>
                 <div className='w-[25%]'>
                     <div className='p-5'>
