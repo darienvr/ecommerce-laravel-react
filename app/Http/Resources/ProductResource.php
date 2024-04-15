@@ -22,6 +22,7 @@ class ProductResource extends JsonResource
             'description' => $this->description,
             'image' => $this->image ? asset('images/' . $this->image) : null,
             //'image' => $this->image ? 'storage/app/public/images/' . $this->image : null,
+            'sizes' => $this->sizes ? json_decode($this->sizes) : null,
         ];
     }
 }

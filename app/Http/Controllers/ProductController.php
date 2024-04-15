@@ -25,6 +25,7 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         $data = $request->validated();
+        $data['sizes'] = json_encode($request->sizes); // Convertir el array de tallas a JSON
 
         $imageName = null;
         if ($request->hasFile('image')) {
@@ -69,6 +70,10 @@ class ProductController extends Controller
         if ($request->hasFile('image')) {
             $imageName = time().'.'.$request->image->extension();  
             $request->image->storeAs('images', $imageName);
+        }
+
+        if (isset($request->sizes)) {
+            $data['sizes'] = json_encode($request->sizes); // Actualizar tallas si se proporcionan
         }
 
         $product->update(array_merge(
