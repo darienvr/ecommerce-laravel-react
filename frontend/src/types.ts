@@ -29,4 +29,5 @@ export type ContextType = {
     productDetails: any,
     loading: boolean,
     deleteCart: ()=>void,
+    selectCategory: string,
 }

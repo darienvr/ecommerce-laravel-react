@@ -5,7 +5,7 @@ import ProductsList from '../components/ProductsList';
 
 function ProductsView() {
 
-    const { categories, handleCategory } = useStateContext() as ContextType;
+    const { categories, handleCategory, selectCategory } = useStateContext() as ContextType;
 
   return (
     <>
@@ -17,7 +17,7 @@ function ProductsView() {
                         <h1 className='text-2xl font-semibold pb-3'>Category</h1>
                         <div className='flex flex-col'>
                         {categories.map(category => (
-                            <button onClick={()=>handleCategory(category.id)} className='py-1 hover:font-semibold w-fit text-lg' key={category.id}>{category.category}</button>
+                            <button onClick={()=>handleCategory(category.id)} className={`py-1 hover:font-semibold w-fit text-lg ${selectCategory === category.id ? 'font-semibold underline' : ''}`} key={category.id}>{category.category}</button>
                         ))}
                         </div>
                     </div>

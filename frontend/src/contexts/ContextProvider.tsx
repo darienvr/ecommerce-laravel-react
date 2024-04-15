@@ -110,7 +110,8 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
             totalPrice,
             productDetails,
             loading,
-            deleteCart
+            deleteCart,
+            selectCategory
         }}>
             {children}
         </StateContext.Provider>
