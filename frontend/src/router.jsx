@@ -3,14 +3,19 @@ import ProductsView from './views/ProductsView'
 import SingleProductView from './views/SingleProductView'
 import Cart from './views/CartView'
 import Payment from './views/PaymentView'
+import Home from './views/HomeView'
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Navigate to="/home" />,
+        element: <Navigate to="/products" />,
     },
     {
         path: '/home',
+        element: <Home />,
+    },
+    {
+        path: '/products',
         element: <ProductsView />,
     },
     {

@@ -16,6 +16,7 @@ const Navbar = () => {
                     <Link className='font-bold' to='/home'>ECOMMERCE</Link>
                 </div>
                 <div className='flex gap-10'>
+                    <Link to='/home'>Home</Link>
                     <Link to={'/cart'} className='flex items-center relative gap-1'>Cart
                         <p className='absolute -right-2 -top-2 text-black bg-gray-200 rounded-[50%] w-5 h-5 flex items-center justify-center font-semibold text-sm'>{totalAmount}</p>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

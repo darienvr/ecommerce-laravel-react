@@ -101,7 +101,7 @@ const CartView = () => {
                             );
                             })}
                             <div className='flex justify-between my-5 items-center'>
-                                <Link className='rounded-md px-4 py-2 bg-zinc-700 text-gray-100 font-semibold' to='/'>Continue Shopping</Link>
+                                <Link className='rounded-md px-4 py-2 bg-zinc-700 text-gray-100 font-semibold' to='/products'>Continue Shopping</Link>
                                 <Link onClick={deleteCart} className='rounded-md px-4 py-2 text-red-500 font-semibold hover:underline' to='/cart'>Clear Shopping Cart</Link>
                             </div>
                             
