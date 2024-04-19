@@ -107,7 +107,7 @@ const CartView = () => {
                             
                         </div>
                         <div className='w-[40%]'>
-                            <div className='border h-fit w-[75%] mx-auto my-5 flex flex-col justify-between p-3 rounded-md border-black'>
+                            <div className='border h-fit w-[75%] mx-auto my-5 flex flex-col justify-between p-3 rounded-md shadow-lg'>
                                 <h1 className='font-bold pb-5'>ORDER SUMARY</h1>
                                 <span className='flex justify-between'>
                                     <h3>Subtotal</h3><p>${totalPrice}</p>
