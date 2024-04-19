@@ -75,7 +75,7 @@ const Payment = () => {
       }
 
   return (
-    <>
+    <div className='bg-gray-100 h-[100vh]'>
         <Navbar />
         <img className='mx-auto mt-5' src={imgStripe} alt="" />
         <p className='w-[40%] mx-auto text-gray-500 mb-3'>Test Card: 4242 4242 4242 4242</p>
@@ -83,11 +83,10 @@ const Payment = () => {
             <p className='mb-5 text-2xl font-bold'>Payment Information</p>
             <form className='flex flex-col h-fit justify-between' onSubmit={handleSubmit}>
                 <CardElement />
-                <p className='mx-auto my-5 text-2xl font-semibold'>Total: ${totalPrice}</p>
-                <button className='bg-blue-400 px-5 py-2 rounded-md w-[50%] mx-auto'>Pay Now</button>
+                <button className='bg-blue-500 px-5 py-2 rounded-md w-[50%] mx-auto text-white font-bold mt-8 text-xl'>Pay ${totalPrice}</button>
             </form>
         </div>
-    </>
+    </div>
   )
 }
 
