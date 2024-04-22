@@ -53,14 +53,14 @@ const SingleProductView = () => {
                                     <h1 className='text-5xl font-semibold'>{name}</h1>
                                     <h3 className='text-2xl text-gray-600 font-semibold'>${price}</h3>
                                     <p>{description}</p>
-                                    <div>
+                                    {sizes && <div>
                                         <h2 className='text-gray-500 mb-3'>Size:</h2>
                                         <div className='flex gap-2'>
                                             {sizes?.map((item)=>(
                                                 <button className='border w-8 h-8 flex items-center justify-center'>{item}</button>
                                             ))}
                                         </div>
-                                    </div>
+                                    </div>}
                                     <div className='flex items-center text-2xl'>
                                         <button onClick={()=>handleDecrease()}>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="#817d7d" className="w-10 h-10">

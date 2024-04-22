@@ -1,9 +1,9 @@
-import React from 'react'
 import Navbar from '../components/Navbar'
 import HomeImg from '../assets/homeImg.png'
 import { useStateContext } from '../contexts/ContextProvider'
 import { ContextType, Product } from '../types';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const HomeView = () => {
 
@@ -24,7 +24,7 @@ const HomeView = () => {
                 <div className='flex-1 flex flex-col justify-center gap-5'>
                     <h1 className='font-semibold text-5xl'>Title Ecommerce</h1>
                     <p className='text-lg'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia, veniam! Inventore neque exercitationem ullam minus ipsum est fugit commodi repellat laboriosam sequi, vitae facilis, quasi quam. Corrupti ducimus asperiores dignissimos!</p>
-                    <button className='bg-zinc-700 w-fit text-white px-5 py-3 rounded-md hover:bg-zinc-600 transition-colors'>Our Products</button>
+                    <Link to='/products' className='bg-zinc-700 w-fit text-white px-5 py-3 rounded-md hover:bg-zinc-600 transition-colors'>Our Products</Link>
                 </div>
                 <div className='flex-1 flex justify-center h-[500px]'>
                     <img className='hover:scale-105 transition-all' src={HomeImg} alt="Imagen Principal del Ecommerce" />
