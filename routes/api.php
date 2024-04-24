@@ -25,3 +25,4 @@ Route::apiResource('product', ProductController::class);
 
 Route::post('/checkout', 'App\Http\Controllers\PaymentController@createPaymentIntent');
 
+Route::get('/product/search', 'App\Http\Controllers\ProductController@search');
