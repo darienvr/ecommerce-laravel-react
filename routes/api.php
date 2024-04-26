@@ -21,8 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('category', CategoryController::class);
+Route::get('/product/search', [ProductController::class, 'search']);
 Route::apiResource('product', ProductController::class);
+
 
 Route::post('/checkout', 'App\Http\Controllers\PaymentController@createPaymentIntent');
 
-Route::get('/product/search', 'App\Http\Controllers\ProductController@search');
+
