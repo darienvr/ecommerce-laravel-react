@@ -39,7 +39,9 @@ const ProductsList = () => {
                                 <div>
                                     {listView ? 
                                     <div key={product.id} className='border-2 shadow-lg rounded-md h-[190px] bg-gray-100 w-[100%] flex'>
-                                        <img onClick={()=>onClick(product.id)} className='h-auto w-[200px] cursor-pointer rounded-l-md' src={product.image} alt={product.name} />
+                                        <div className='min-w-[200px] h-auto cursor-pointer rounded-md py-2 pl-2'>
+                                            <img className='w-full h-full rounded-md' onClick={()=>onClick(product.id)}  src={product.image} alt={product.name} />
+                                        </div>
                                         <div className='flex flex-col justify-between p-5'>
                                             <h1 className='font-semibold text-xl'>{product.name}</h1>
                                             <h2>${product.price}</h2>
@@ -47,9 +49,11 @@ const ProductsList = () => {
                                             <button onClick={()=>addCart(product.id, 1)} className='bg-zinc-700 px-8 rounded-md text-white text-sm font-semibold w-fit py-2'>Add Cart</button>
                                         </div>
                                     </div> 
-                                    : <div key={product.id} className='border-2 shadow-lg rounded-md h-[330px] bg-gray-100 w-[100%]'>
-                                        <img onClick={()=>onClick(product.id)} className='h-[75%] w-[100%] cursor-pointer rounded-t-md' src={product.image} alt={product.name} />
-                                        <div className='p-2 text-lg  flex flex-col justify-between h-[25%]'>
+                                    : <div key={product.id} className='border-2 shadow-lg rounded-md h-[330px] bg-gray-100 w-[100%] p-2'>
+                                        <div className='h-[75%] w-[100%] cursor-pointer rounded-t-md'>
+                                            <img className='w-full h-full rounded-t-md hover:scale-95 transition-all' onClick={()=>onClick(product.id)}  src={product.image} alt={product.name} />
+                                        </div>
+                                        <div className='text-lg  flex flex-col justify-around h-[25%]'>
                                             <div className='flex justify-between'>
                                                 <h3 className='font-semibold'>{product.name}</h3>
                                                 <p className='text-gray-500 font-semibold'>${product.price}</p>
