@@ -31,4 +31,5 @@ export type ContextType = {
     loading: boolean,
     deleteCart: ()=>void,
     selectCategory: string,
+    searchSubmit: (i:string)=>void,
 }

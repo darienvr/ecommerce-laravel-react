@@ -65,10 +65,6 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
     const deleteCart = () => {
         setCart([])
     }
-
-    useEffect(() => {
-        console.log(cart);
-    }, [cart]); 
     
     // Actualizar el localStorage cada vez que el Cart cambie
     useEffect(() => {
@@ -80,7 +76,6 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
         const fetchProductDetails = async () => {
             const promises = cart.map((item) =>
                 axiosClient.get(`/product/${item.product_id}`).then((response: any) => {
-                    console.log(response.data.data);
                     return response.data.data;
                 })
             );
@@ -98,6 +93,14 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
         return total + (product.price * (cartItem ? cartItem.amount : 0));
     }, 0);
 
+    const searchSubmit = (query: string) => {
+        axiosClient.get(`/product/search?q=${query}`)
+        .then((response:any)=>{
+            setFilterProducts(response.data.data)
+        });
+    }
+
+
     return (
         <StateContext.Provider value={{
             products,
@@ -111,7 +114,8 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
             productDetails,
             loading,
             deleteCart,
-            selectCategory
+            selectCategory,
+            searchSubmit
         }}>
             {children}
         </StateContext.Provider>

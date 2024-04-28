@@ -6,12 +6,12 @@ import { useState } from 'react';
 
 function ProductsView() {
 
-    const { categories, handleCategory, selectCategory } = useStateContext() as ContextType;
+    const { categories, handleCategory, selectCategory, searchSubmit } = useStateContext() as ContextType;
     const [input, setInput] = useState('')
 
     const onSubmit = (e:any) => {
         e.preventDefault()
-        alert(input)
+        searchSubmit(input)
     }
 
   return (
