@@ -34,11 +34,12 @@ const ProductsList = () => {
                         </div>
                     </div>
                     <div className={`${listView ? 'grid-cols-1' : 'grid-cols-3'} grid p-5 mx-auto gap-3`}>
-                        {filterProducts.length === 0 ? <h1>Sorry, no products matched your search.</h1> 
+                        {filterProducts.length === 0 
+                            ? <h1>Sorry, no products matched your search.</h1> 
                             : <> {filterProducts.map(product=> (
-                                <div>
+                                <div key={product.id}>
                                     {listView ? 
-                                    <div key={product.id} className='border-2 shadow-lg rounded-md h-[190px] bg-gray-100 w-[100%] flex'>
+                                    <div  className='border-2 shadow-lg rounded-md h-[190px] bg-gray-100 w-[100%] flex'>
                                         <div className='min-w-[200px] h-auto cursor-pointer rounded-md py-2 pl-2'>
                                             <img className='w-full h-full rounded-md' onClick={()=>onClick(product.id)}  src={product.image} alt={product.name} />
                                         </div>
@@ -49,7 +50,7 @@ const ProductsList = () => {
                                             <button onClick={()=>addCart(product.id, 1)} className='bg-zinc-700 px-8 rounded-md text-white text-sm font-semibold w-fit py-2'>Add Cart</button>
                                         </div>
                                     </div> 
-                                    : <div key={product.id} className='border-2 shadow-lg rounded-md h-[330px] bg-gray-100 w-[100%] p-2'>
+                                    : <div className='border-2 shadow-lg rounded-md h-[330px] bg-gray-100 w-[100%] p-2'>
                                         <div className='h-[75%] w-[100%] cursor-pointer rounded-t-md'>
                                             <img className='w-full h-full rounded-t-md hover:scale-95 transition-all' onClick={()=>onClick(product.id)}  src={product.image} alt={product.name} />
                                         </div>
