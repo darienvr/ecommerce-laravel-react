@@ -11,7 +11,11 @@ const CartView = () => {
         setCart(cart.filter(item => item.product_id !== id));
     };
 
-    const totalAmount = cart.reduce((acc, item)=>acc + item.amount, 0);
+    //const totalAmount = cart.reduce((acc, item)=>acc + item.amount, 0);
+
+    const tax = totalPrice*10/100;
+    const shipping = 5;
+    const orderTotal = totalPrice+tax+shipping;
 
     const handleIncrease = (id:Product['id']) => {
         setCart((prev:[]) => {
@@ -118,11 +122,11 @@ const CartView = () => {
                                 </span>
                                 <hr/>
                                 <span className='flex justify-between'>
-                                    <h3>Tax</h3><p>${totalAmount*18}</p>
+                                    <h3>Tax</h3><p>${totalPrice*10/100}</p>
                                 </span>
                                 <hr/>
                                 <span className='flex justify-between pt-5'>
-                                    <h2 className='font-semibold'>Order Total</h2><p>${totalPrice}</p>
+                                    <h2 className='font-semibold'>Order Total</h2><p>${orderTotal}</p>
                                 </span>
                             </div>
                             <div className='flex justify-center mb-10'>
