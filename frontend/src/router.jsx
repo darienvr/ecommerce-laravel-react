@@ -4,6 +4,7 @@ import SingleProductView from './views/SingleProductView'
 import Cart from './views/CartView'
 import Payment from './views/PaymentView'
 import Home from './views/HomeView'
+import Login from './views/Login'
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,11 @@ const router = createBrowserRouter([
     {
         path: '/payment',
         element: <Payment/>,
-    }
+    },
+    {
+        path: '/login',
+        element: <Login/>,
+    },
 ])
 
 export default router;
