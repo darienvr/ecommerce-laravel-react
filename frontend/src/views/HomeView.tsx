@@ -17,19 +17,23 @@ const HomeView = () => {
     }
 
   return (
-    <div className='bg-gray-100 min-h-[100vh]'>
-        <Navbar />
-        <div className='w-[1300px] mx-auto py-20 px-10 '>
-            <main className='flex flex-row gap-10'>
-                <div className='flex-1 flex flex-col justify-center gap-5'>
-                    <h1 className='font-semibold text-5xl'>Title Ecommerce</h1>
-                    <p className='text-lg'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia, veniam! Inventore neque exercitationem ullam minus ipsum est fugit commodi repellat laboriosam sequi, vitae facilis, quasi quam. Corrupti ducimus asperiores dignissimos!</p>
-                    <Link to='/products' className='bg-zinc-700 w-fit text-white px-5 py-3 rounded-md hover:bg-zinc-600 transition-colors'>Our Products</Link>
-                </div>
-                <div className='flex-1 flex justify-center h-[500px]'>
-                    <img className='hover:scale-105 transition-all' src={HomeImg} alt="Imagen Principal del Ecommerce" />
-                </div>
-            </main>
+    <div className='bg-gray-100'>
+       <div className='h-[100vh]'>
+            <Navbar />
+            <div className='w-[1300px] mx-auto py-20 px-10'>
+                <main className='flex flex-row gap-10'>
+                    <div className='flex-1 flex flex-col justify-center gap-5'>
+                        <h1 className='font-semibold text-5xl'>Title Ecommerce</h1>
+                        <p className='text-lg'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia, veniam! Inventore neque exercitationem ullam minus ipsum est fugit commodi repellat laboriosam sequi, vitae facilis, quasi quam. Corrupti ducimus asperiores dignissimos!</p>
+                        <Link to='/products' className='bg-zinc-700 w-fit text-white px-5 py-3 rounded-md hover:bg-zinc-600 transition-colors'>Our Products</Link>
+                    </div>
+                    <div className='flex-1 flex justify-center h-[500px]'>
+                        <img className='hover:scale-105 transition-all' src={HomeImg} alt="Imagen Principal del Ecommerce" />
+                    </div>
+                </main>
+            </div>  
+        </div>   
+        <div className='w-[1300px] mx-auto py-20 px-10'>
             <div>
                 <h1 className='text-3xl font-semibold mb-3'>Feature Products</h1>
                 <hr className='border-zinc-300' />
