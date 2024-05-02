@@ -16,6 +16,7 @@ export interface Category {
 export interface Cart {
     product_id: string,
     amount: number,
+    size: string
 }
 
 export type ContextType = {
@@ -24,7 +25,7 @@ export type ContextType = {
     filterProducts: Product[],
     cart: Cart[],
     handleCategory: (i:Category['id'])=>void,
-    addCart: (i:Product['id'], n:number)=>void,
+    addCart: (i:Product['id'], n:number, m:string)=>void,
     setCart: (i:any)=>void,
     totalPrice: number,
     productDetails: any,

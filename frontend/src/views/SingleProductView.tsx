@@ -12,8 +12,9 @@ const SingleProductView = () => {
 
     const {id} = useParams()
     const [product, setProduct] = useState<Product | null>(null)
-    const [loading, setLoading] = useState<boolean>(true)
+    const [loading, setLoading] = useState(true)
     const [count, setCount] = useState(1);
+    const [size, setSize] = useState('');
 
     const getProduct = (url: string) => {
         axiosClient.get(url)
@@ -38,6 +39,11 @@ const SingleProductView = () => {
         setCount(prev=>prev-1);
     }   
 
+    const handleSize = (size: string) => {
+        alert(size)
+        setSize(size)
+    }
+
     const {name, image, price, description, sizes} = product || {};
 
     return (
@@ -57,7 +63,7 @@ const SingleProductView = () => {
                                         <h2 className='text-gray-500 mb-3'>Size:</h2>
                                         <div className='flex gap-2'>
                                             {sizes?.map((item)=>(
-                                                <button className='border w-8 h-8 flex items-center justify-center'>{item}</button>
+                                                <button onClick={()=>handleSize(item)} className='border w-8 h-8 flex items-center justify-center'>{item}</button>
                                             ))}
                                         </div>
                                     </div>}
@@ -75,7 +81,7 @@ const SingleProductView = () => {
                                             </svg>
                                         </button>
                                     </div> 
-                                    <button onClick={()=>product && addCart(product.id, count)} className='bg-zinc-700 px-8 rounded-md text-white text-sm font-semibold w-fit py-2 flex gap-2'>Add Cart <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                                    <button onClick={()=>product && addCart(product.id, count, size)} className='bg-zinc-700 px-8 rounded-md text-white text-sm font-semibold w-fit py-2 flex gap-2'>Add Cart <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                                     </svg>
                                     </button>

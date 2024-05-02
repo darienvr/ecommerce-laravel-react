@@ -48,16 +48,16 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
         }
     }, [selectCategory, products]);
 
-    const addCart = (productId:Product['id'], amount:Cart['amount']) => {
+    const addCart = (productId:Product['id'], amount:Cart['amount'], size:Cart['size']) => {
         alert('Agregado al carrito')
         setCart(prevCart => {
-            const existingItem = prevCart.find(item => item.product_id === productId);
+            const existingItem = prevCart.find(item => item.product_id === productId && item.size === size);
             if (existingItem) {
                 return prevCart.map(item =>
                     item.product_id === productId ? { ...item, amount: item.amount + amount } : item
                 );
             } else {
-                return [...prevCart, { product_id: productId, amount: amount }];
+                return [...prevCart, { product_id: productId, amount: amount, size: size }];
             }
         });
     }
