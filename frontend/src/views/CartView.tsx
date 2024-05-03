@@ -1,6 +1,5 @@
 import { useStateContext } from '../contexts/ContextProvider';
 import { ContextType, Product } from '../types';
-import axiosClient from '../axios';
 import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 
@@ -90,6 +89,7 @@ const CartView = () => {
                                                         </button>
                                                     </div>
                                                 </div> 
+                                                <p className='text-gray-500 text-sm'>Size: {product.sizes}</p>
                                             </div>
                                         </div>
                                         <div className='flex flex-col items-center gap-2'>
