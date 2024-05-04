@@ -58,7 +58,7 @@ const CartView = () => {
     }
 
     return (
-        <div className='bg-gray-100 h-[100vh]'>
+        <div className='bg-gray-100 min-h-[100vh]'>
             <Navbar />
             <div className='mt-10 w-[70%] mx-auto'>
                 {loading ? (
