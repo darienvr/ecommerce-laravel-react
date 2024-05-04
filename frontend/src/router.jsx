@@ -5,6 +5,7 @@ import Cart from './views/CartView'
 import Payment from './views/PaymentView'
 import Home from './views/HomeView'
 import Login from './views/Login'
+import Orders from './views/OrdersView'
 
 const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
     {
         path: '/login',
         element: <Login/>,
+    },
+    {
+        path: '/orders',
+        element: <Orders/>,
     },
 ])
 
