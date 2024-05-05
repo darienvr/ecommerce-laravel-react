@@ -23,9 +23,9 @@ function ProductsView() {
     <>
         <Navbar />
         <div className='bg-gray-100 min-h-[100vh]'>
-            <div className='flex w-[90%] mx-auto pt-5'>
+            <div className='flex w-[1300px] px-10 mx-auto pt-5'>
                 <div className='w-[25%]'>
-                    <div className='p-5'>
+                    <div className='py-5'>
                         <h1 className='text-xl font-semibold pb-3'>Search Product</h1>
                         <form  onSubmit={(e)=>onSubmit(e)} className='flex items-center'>
                             <input value={input.trimStart()} onChange={handleChange}  className='pl-1 shadow-md bg-gray-200 rounded-l-md w-[85%] h-[35px] border' type="text" />
@@ -36,7 +36,7 @@ function ProductsView() {
                             </button>
                         </form>
                     </div>
-                    <div className='p-5'>
+                    <div className='py-5'>
                         <h1 className='text-xl font-semibold pb-3'>Category</h1>
                         <div className='flex flex-col'>
                         {categories.map(category => (

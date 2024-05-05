@@ -1,8 +1,10 @@
-import React from 'react'
+import Navbar from '../components/Navbar'
 
 const OrdersView = () => {
   return (
-    <div>OrdersView</div>
+    <div className='bg-gray-100 min-h-[100vh]'>
+            <Navbar />
+    </div>
   )
 }
 

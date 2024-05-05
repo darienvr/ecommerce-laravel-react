@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <nav className='bg-zinc-800 h-20 text-white flex items-center'>
-            <div className='flex justify-between w-[90%] mx-auto text-xl'>
+            <div className='flex justify-between w-[1300px] mx-auto text-xl px-10'>
                 <div>
                     <Link className='font-bold' to='/home'>ECOMMERCE</Link>
                 </div>

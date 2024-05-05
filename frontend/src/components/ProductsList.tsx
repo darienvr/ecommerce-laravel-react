@@ -17,7 +17,7 @@ const ProductsList = () => {
 
   return (
     <>
-        <div className='flex justify-between pt-5 px-5 items-center gap-4'>
+        <div className='flex justify-between pt-5 pl-5 items-center gap-4'>
                         <h3 className='text-nowrap text-xl'>{filterProducts.length} Products Found</h3>
                         <div className='border border-3 border-gray-300 h-0 w-[100%]'></div>
                         <div className='flex gap-2'>
@@ -33,7 +33,7 @@ const ProductsList = () => {
                             </button>
                         </div>
                     </div>
-                    <div className={`${listView ? 'grid-cols-1' : 'grid-cols-3'} grid p-5 mx-auto gap-3`}>
+                    <div className={`${listView ? 'grid-cols-1' : 'grid-cols-3'} grid pt-5 pl-5 mx-auto gap-3`}>
                         {filterProducts.length === 0 
                             ? <h1>Sorry, no products matched your search.</h1> 
                             : <> {filterProducts.map(product=> (
