@@ -1,13 +1,13 @@
 import { useStateContext } from '../contexts/ContextProvider';
-import { ContextType, Product } from '../types';
+import { ContextType, Product, Cart } from '../types';
 import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 
 const CartView = () => {
     const { cart, setCart, loading, productDetails, totalPrice, deleteCart } = useStateContext() as ContextType;
     
-    const handleDelete = (id: Product['id']) => {
-        setCart(cart.filter(item => item.product_id !== id));
+    const handleDelete = (id: Cart['id']) => {
+        setCart(cart.filter(item => item.id !== id));
     };
 
     //const totalAmount = cart.reduce((acc, item)=>acc + item.amount, 0);
@@ -66,10 +66,10 @@ const CartView = () => {
                 ) : (
                     <div className='flex'>
                         <div className='w-[60%] px-10'>
-                            {productDetails.map((product:any) => {
-                            const cartItem = cart.find((item) => item.product_id === product.id);
+                            {cart.map((cartItem:Cart) => {
+                            const product = productDetails.find((item:Product) => item.id === cartItem.product_id);
                             return (
-                                <div key={product.id}>
+                                <div key={cartItem.id}>
                                     <div  className='flex justify-between items-center my-5 text-lg'>
                                         <div className='flex gap-3 items-center'>
                                             <img className='w-[120px] rounded-md h-28' src={product.image} alt="" />
@@ -89,12 +89,12 @@ const CartView = () => {
                                                         </button>
                                                     </div>
                                                 </div> 
-                                                <p className='text-gray-500 text-sm'>Size: {product.sizes}</p>
+                                                <p className='text-gray-500 text-sm'>Size: {cartItem.size}</p>
                                             </div>
                                         </div>
                                         <div className='flex flex-col items-center gap-2'>
                                             <p className='font-semibold'>${product.price}</p>
-                                            <button onClick={() => handleDelete(product.id)} className='text-red-500'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                            <button onClick={() => handleDelete(cartItem.id)} className='text-red-500'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                                             </svg>
                                             </button>

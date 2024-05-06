@@ -14,9 +14,10 @@ export interface Category {
 }
 
 export interface Cart {
+    id: number,
     product_id: string,
     amount: number,
-    size: string
+    size: string,
 }
 
 export type ContextType = {

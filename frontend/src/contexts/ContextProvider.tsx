@@ -51,15 +51,17 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
     const addCart = (productId:Product['id'], amount:Cart['amount'], size:Cart['size']) => {
         alert('Agregado al carrito')
         setCart(prevCart => {
+            const nextId = prevCart.length > 0 ? prevCart[prevCart.length - 1].id + 1 : 1;
             const existingItem = prevCart.find(item => item.product_id === productId && item.size === size);
             if (existingItem) {
                 return prevCart.map(item =>
                     item.product_id === productId ? { ...item, amount: item.amount + amount } : item
                 );
             } else {
-                return [...prevCart, { product_id: productId, amount: amount, size: size }];
+                return [...prevCart, { id: nextId, product_id: productId, amount: amount, size: size}];
             }
         });
+        console.log('Cart:',cart)
     }
 
     const deleteCart = () => {
