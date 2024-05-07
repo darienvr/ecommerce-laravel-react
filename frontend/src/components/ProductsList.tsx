@@ -33,33 +33,32 @@ const ProductsList = () => {
                             </button>
                         </div>
                     </div>
-                    <div className={`${listView ? 'grid-cols-1' : 'grid-cols-3'} grid pt-5 pl-5 mx-auto gap-3`}>
+                    <div className={`${listView ? 'grid-cols-1' : 'grid-cols-3'} grid pt-5 pl-5 mx-auto gap-5 pb-10`}>
                         {filterProducts.length === 0 
                             ? <h1>Sorry, no products matched your search.</h1> 
                             : <> {filterProducts.map(product=> (
                                 <div key={product.id}>
                                     {listView ? 
                                     <div  className='border-2 shadow-lg rounded-md h-[190px] bg-gray-100 w-[100%] flex'>
-                                        <div className='min-w-[200px] h-auto cursor-pointer rounded-md py-2 pl-2'>
-                                            <img className='w-full h-full rounded-md' onClick={()=>onClick(product.id)}  src={product.image} alt={product.name} />
+                                        <div className='min-w-[200px] h-auto rounded-md py-2 pl-2'>
+                                            <img className='w-full h-full rounded-md' src={product.image} alt={product.name} />
                                         </div>
                                         <div className='flex flex-col justify-between p-5'>
                                             <h1 className='font-semibold text-xl'>{product.name}</h1>
                                             <h2>${product.price}</h2>
                                             <p>{product.description}</p>
-                                            <button onClick={()=>addCart(product.id, 1)} className='bg-zinc-700 px-8 rounded-md text-white text-sm font-semibold w-fit py-2'>Add Cart</button>
+                                            <button onClick={()=>onClick(product.id)} className='bg-zinc-700 px-8 rounded-md text-white text-sm font-semibold w-fit py-2'>Details</button>
                                         </div>
                                     </div> 
-                                    : <div className='border-2 shadow-lg rounded-md h-[330px] bg-gray-100 w-[100%] p-2'>
-                                        <div className='h-[75%] w-[100%] cursor-pointer rounded-t-md'>
-                                            <img className='w-full h-full rounded-t-md hover:scale-95 transition-all' onClick={()=>onClick(product.id)}  src={product.image} alt={product.name} />
+                                    : <div onClick={()=>onClick(product.id)} className='border-2 shadow-lg rounded-md h-[330px] bg-gray-100 w-[100%] p-2 cursor-pointer hover:scale-105 transition-all'>
+                                        <div className='h-[80%] w-[100%] cursor-pointer rounded-t-md'>
+                                            <img className='w-full h-full rounded-md' onClick={()=>onClick(product.id)}  src={product.image} alt={product.name} />
                                         </div>
-                                        <div className='text-lg  flex flex-col justify-around h-[25%]'>
-                                            <div className='flex justify-between'>
+                                        <div className='text-lg flex flex-col justify-around h-[20%]'>
+                                            <div className='text-center'>
                                                 <h3 className='font-semibold'>{product.name}</h3>
                                                 <p className='text-gray-500 font-semibold'>${product.price}</p>
                                             </div>
-                                            <button onClick={()=>addCart(product.id, 1)} className='bg-zinc-700 px-8 rounded-md text-white text-sm font-semibold w-fit py-2'>Add Cart</button>
                                         </div>
                                     </div>}
                                 </div>
