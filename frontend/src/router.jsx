@@ -6,6 +6,7 @@ import Payment from './views/PaymentView'
 import Home from './views/HomeView'
 import Login from './views/Login'
 import Orders from './views/OrdersView'
+import GuestLayout from './components/GuestLayout'
 
 const router = createBrowserRouter([
     {
@@ -33,12 +34,18 @@ const router = createBrowserRouter([
         element: <Payment/>,
     },
     {
-        path: '/login',
-        element: <Login/>,
-    },
-    {
         path: '/orders',
         element: <Orders/>,
+    },
+    {
+        path: '/',
+        element: <GuestLayout />,
+        children: [
+            {
+                path: '/login',
+                element: <Login />
+            },
+        ]
     },
 ])
 
