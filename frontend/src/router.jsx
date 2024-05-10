@@ -7,6 +7,7 @@ import Home from './views/HomeView'
 import Login from './views/Login'
 import Orders from './views/OrdersView'
 import GuestLayout from './components/GuestLayout'
+import Signup from './views/Signup'
 
 const router = createBrowserRouter([
     {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login />
+            },
+            {
+                path: '/signup',
+                element: <Signup />
             },
         ]
     },
