@@ -5,7 +5,7 @@ import { ContextType, Product } from '../types';
 
 const ProductsList = () => {
 
-    const { filterProducts, addCart} = useStateContext() as ContextType;
+    const { filterProducts, loading} = useStateContext() as ContextType;
 
     const [listView, setListView] = useState(false)
 
@@ -13,6 +13,12 @@ const ProductsList = () => {
 
     const onClick = (id:Product['id']) => {
         navigate(`/product/${id}`)
+    }
+
+    if(loading){
+        return(
+            <h1>Loading</h1>
+        )
     }
 
   return (

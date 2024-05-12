@@ -28,10 +28,13 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
             .then((response:any)=>{
                 setProducts(response.data.data)
                 setFilterProducts(response.data.data)
+                setLoading(false)
             });
+        
     };
 
     useEffect(()=>{
+        setLoading(true)
         getCategories('/category');
         getProducts('/product')
     },[])
