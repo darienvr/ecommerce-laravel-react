@@ -17,7 +17,9 @@ const ProductsList = () => {
 
     if(loading){
         return(
-            <h1>Loading</h1>
+            <div className='flex justify-between pt-5 pl-5 items-center gap-4'>
+                <h1 className='text-3xl mx-auto'>Loading...</h1>
+            </div>
         )
     }
 
