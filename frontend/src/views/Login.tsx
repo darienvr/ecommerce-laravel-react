@@ -34,17 +34,16 @@ const Login = () => {
           <h1 className='text-2xl font-semibold'>Bienvenido</h1>
           <h5 className='text-xl pb-4'>Ingrese su cuenta</h5>
           <form onSubmit={onSubmit} className=''>
-            {message && !errors && (<p className='alerta'>*{message}</p>)}
             <label className='form-label'><b>Email</b></label> <br/>
             <input ref={emailRef} className='rounded w-[80%]' type='email'></input><br/>
             
             <label className='form-label'><b>Contraseña</b></label> <br/>
             <input ref={passwordRef} className='rounded w-[80%]' type='password'></input> <br/>
             
-            <button className='btn-login' type='submit'>Iniciar Sesion</button> <br/>
-            <div className='contenedor-registrarse'>
+            <button className='border-2 bg-blue-700 text-white' type='submit'>Iniciar Sesion</button> <br/>
+            <div className=''>
               <p>¿No tiene una cuenta?</p>
-              <a className='btn-link' href='/signup'>Registrarse</a>
+              <a className='underline' href='/signup'>Registrarse</a>
             </div>
           </form>
       </div>
