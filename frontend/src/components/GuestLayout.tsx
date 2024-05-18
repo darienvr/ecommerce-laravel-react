@@ -10,8 +10,8 @@ const GuestLayout = () => {
 
 
   return (
-    <div className='h-[100vh] flex items-center justify-center'>
-        <div className='w-[1000px] flex items-center bg-blue-300'>
+    <div className='h-[100vh] flex items-center justify-center bg-blue-300'>
+        <div className='w-[1000px] h-[500px] flex items-center shadow-lg bg-white rounded-md'>
             <div className='w-[50%]'>
                 <img className='rounded' src={loginImg}></img>
             </div>

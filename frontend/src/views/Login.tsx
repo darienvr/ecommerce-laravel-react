@@ -31,19 +31,19 @@ const Login = () => {
   
     return (
       <div className=''>
-          <h1 className='text-2xl font-semibold'>Bienvenido</h1>
-          <h5 className='text-xl pb-4'>Ingrese su cuenta</h5>
+          <h1 className='text-4xl font-normal'>Bienvenido</h1>
+          <h5 className='text-md pb-4 font-normal'>Ingrese su cuenta</h5>
           <form onSubmit={onSubmit} className=''>
-            <label className='form-label'><b>Email</b></label> <br/>
-            <input ref={emailRef} className='rounded w-[80%]' type='email'></input><br/>
+            <label className=''><b>Email</b></label> <br/>
+            <input ref={emailRef} className='rounded border w-[80%] border-gray-400' type='email'></input><br/>
             
             <label className='form-label'><b>Contraseña</b></label> <br/>
-            <input ref={passwordRef} className='rounded w-[80%]' type='password'></input> <br/>
+            <input ref={passwordRef} className='rounded border w-[80%] border-gray-400' type='password'></input> <br/>
             
-            <button className='border-2 bg-blue-700 text-white' type='submit'>Iniciar Sesion</button> <br/>
-            <div className=''>
+            <button className='rounded-md bg-blue-800 text-white py-1 px-4 my-3' type='submit'>Iniciar Sesion</button> <br/>
+            <div className='flex'>
               <p>¿No tiene una cuenta?</p>
-              <a className='underline' href='/signup'>Registrarse</a>
+              <a className='text-blue-900 pl-2 hover:underline' href='/signup'>Registrarse</a>
             </div>
           </form>
       </div>
