@@ -37,13 +37,13 @@ const Signup = () => {
           <h3 className='text-xl pb-5'>Ingrese sus datos </h3>
           <form onSubmit={onSubmit} className='formulario'>
             <label className='font-semibold'>Nombre</label><br/>
-            <input ref={nameRef}  className='rounded border w-[80%] border-gray-400 pl-2 h-[30px] mb-2' type='text'></input> <br/>
+            <input  className='rounded border w-[80%] border-gray-400 pl-2 h-[30px] mb-2' type='text'></input> <br/>
             <label className='font-semibold'>Email</label> <br/>
-            <input ref={emailRef} className='rounded border w-[80%] border-gray-400 pl-2 h-[30px] mb-2'  type='email'></input><br/>
+            <input className='rounded border w-[80%] border-gray-400 pl-2 h-[30px] mb-2'  type='email'></input><br/>
             <label className='font-semibold'>Contraseña</label><br/>
-            <input ref={passwordRef} className='rounded border w-[80%] border-gray-400 pl-2 h-[30px] mb-2'  type='password'></input><br/>
+            <input className='rounded border w-[80%] border-gray-400 pl-2 h-[30px] mb-2'  type='password'></input><br/>
             <label className='font-semibold'>Confirmar contraseña</label> <br/>
-            <input ref={passwordConfirmationRef} className='rounded border w-[80%] border-gray-400 pl-2 h-[30px] mb-3'  type='password'></input><br/>
+            <input className='rounded border w-[80%] border-gray-400 pl-2 h-[30px] mb-3'  type='password'></input><br/>
             <button className='rounded-md bg-blue-800 text-white py-1 px-4 my-3 hover:bg-blue-900' type='submit'>Registrar</button>
             <div className='flex'>
               <p>¿Ya tiene una cuenta?</p>
