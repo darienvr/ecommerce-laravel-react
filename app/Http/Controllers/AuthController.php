@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\SignupRequest;
+use App\Models\User;
+
 
 class AuthController extends Controller
 {
@@ -38,5 +42,11 @@ class AuthController extends Controller
             'token'=>$token
         ]);
 
+    }
+
+    public function logout(Request $request){
+        $user = $request->user();
+        $user->currentAccessToken()->delete();
+        return response('', 204);
     }
 }
